@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="refStore">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RefME TestsME Store</title>
+<!--   <link rel="stylesheet" href="styles/main.css"> -->
+	
+<script src="scripts/angular.min.js"></script>	
+<script src="scripts/app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+
+	
+<div class="item" ng-repeat="product in store.products">
+	<img ng-src="{{product.image}}" alt="">
+	<span>{{product.name}}</span>
+	<a href="#">add to cart</a>
+
+	
+		
+	
+      <form name="reviewForm" ng-controller="CartController as cart" ng-submit="cart.addToCart(product)">
+
+          
+		  <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Add to cart" />
+              </fieldset>
+</form>
+	
+	
+	</div>
+
+	
+
+<div id="cart">
+		<div class="orderline">
+			<span>description</span>
+			<span>qty</span>
+			<span>cost</span>
+			<span>total</span>
+			<a href="">delete</a>
+		</div>
+		
+</div>
+	
+	
+	
+
+<!-- endbuild -->
+</body>
+</html>

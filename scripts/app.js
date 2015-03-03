@@ -19,66 +19,45 @@
 	
 		
 		$scope.addItem = function(product) {
-        console.log("you have added " + this.product.name);
+		
+		var item = this.product;
 			
+		var exists = 0;
 
-	angular.forEach($scope.invoice.items, function(item){   
+/* 	angular.forEach($scope.invoice.items, function(item){ */
 			for(var i = 0; i < $scope.invoice.items.length; i++){
 				
-/*  				console.log("the item is: " + item.name);  */
-/* 				console.dir(item.name); */
-				
-/*  				console.log("the current index is at: " + $scope.invoice.items[i].name);  */
-/* 				if(item.name == $scope.invoice.items[i].name) {
-
-					console.log("found a match!");
-				}  */
-				
-/* 				console.log(isEquivalent($scope.invoice.items[i].name, item.name)); */
-				
-				
  					if(isEquivalent($scope.invoice.items[i].name, item.name)){
-						console.log("TRUE - item.name is: " + item.name);
-						console.log("TRUE - $scope.invoice.items[" + i + "].name is: " + $scope.invoice.items[i].name);
-					}else{
- 						console.log("FALSE - item.name is: " + item.name);
-						console.log("FALSE - $scope.invoice.items[" + i + "].name is: " + $scope.invoice.items[i].name);
+/* 						console.log("TRUE - item.name is: " + item.name);
+						console.log("TRUE - $scope.invoice.items[" + i + "].name is: " + $scope.invoice.items[i].name); */
+						console.log("TRUE - incrementing qty of " + $scope.invoice.items[i].name + " by 1");
+						$scope.invoice.items[i].qty++;
+						exists = 1;
+						break;
 					}
-				
-/* 				var prop = item;
-				var invoice = + $scope.invoice.items[i].name; */
-				
-/* 				for(prop in invoice) {
-					if(invoice.hasOwnProperty(prop)) {
-						if(invoice[prop] === "myValue") {
-							//Found myValue!
-						}
-					}
-				} */
-				
-/* 				for (var key in obj) {
-				  console.log("o." + key + " = " + obj[key]);
-				} */
-				
-				
-
-/* 				for (var i=0; i < item.length; i++) {
-					if (myArray[i].name === nameKey) {
-						return myArray[i];
-					}
-				} */
-
 
 			}
-		});
+			
+			
+			if(exists === 0)
+				{
+/*  						console.log("FALSE - item.name is: " + item.name);
+						console.log("FALSE - $scope.invoice.items[" + i + "].name is: " + $scope.invoice.items[i].name); */
+						console.log("FALSE - Adding "+ this.product.name +" to cart");
+						
+						$scope.invoice.items.push({
+							name: this.product.name,
+							qty: 1,
+							price: this.product.price
+						});
+					}
+			
+			
+/* 		}); */
 
 
 
-			$scope.invoice.items.push({
-				name: this.product.name,
-				qty: 1,
-				price: this.product.price
-			});
+			
 		};
 	
 	

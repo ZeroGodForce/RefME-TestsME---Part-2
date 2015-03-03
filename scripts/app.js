@@ -14,24 +14,24 @@
 		};	
 	
 	
-	$scope.addProduct = function() {
-        console.log("this contains " + this.product.name);
-    };
 		
 		$scope.addItem = function(product) {
         console.log("you have added " + this.product.name);
 			
-		
 
-/* 		angular.forEach($scope.invoice.items, function(item){   
+	angular.forEach($scope.invoice.items, function(item){   
 			for(var i = 0; i < $scope.invoice.items.length; i++){
-				console.log($scope.invoice.items[i]);
-				if(item.name.search($scope.invoice.items[i]) >= 0) {
+				
+ 				console.log("the item is: " + $scope.item.name); 
+/* 				console.dir(item.name); */
+				
+ 				console.log("the current index is at: " + $scope.invoice.items[i].name); 
+				if(item.name == $scope.invoice.items[i].name) {
 
 					console.log("found a match!");
-				}
+				} 
 			}
-		}); */
+		});
 
 
 

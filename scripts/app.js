@@ -46,46 +46,11 @@
 	
 	
 	
-	
-	
-	
-	
 	});
 	
 	
 	
-
-/*  	app.controller('CartController', function(){
-		this.cart = {};
-		
-		this.addToCart = function(product) {
-			this.cart.push(this.product);
-		};
-	}); */
-	
-	
-/* 	app.controller('StoreController', ['$scope', function($scope) {
-				this.products = items;
-
-		$scope.invoice = { 
-			items: [{}]    
-		};
-
-  $scope.addToCart = function(product) {
-	  console.log(this.product);
-    this.product = $scope.orderline;
-  };
-}]);
-	 */
-	
-	
-	
-	
-	
-	
 	app.controller('CartController', function($scope){
-    
-
     
 
     $scope.removeItem = function(index) {
@@ -101,12 +66,6 @@
         return total;
     };
 });
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -138,26 +97,6 @@ var items = [
 			image:'http://placehold.it/250x100'
 		}
 	];
-	
-	
-
-/* 		angular.module('scopeExample', []);
-app.controller('MyController', ['$scope', function($scope) {
-  $scope.username = 'World';
-
-  $scope.sayHello = function() {
-    $scope.greeting = 'Hello ' + $scope.username + '!';
-  };
-}]); */
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

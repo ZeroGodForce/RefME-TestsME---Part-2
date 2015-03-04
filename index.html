@@ -1,73 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="refStore">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RefME TestsME Store</title>
-<!--   <link rel="stylesheet" href="styles/main.css"> -->
-	
-<script src="scripts/angular.min.js"></script>	
-<script src="scripts/app.js"></script>
-</head>
-<body ng-controller="StoreController as store">
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>RefME TestsME Store</title>
+	 <link rel="stylesheet" href="style.css">
 
-	 <div class="item" ng-repeat="product in store.products">
-	<img ng-src="{{product.image}}" alt=""><br>
-	<span>{{product.name}}</span>
-	 
-
-		<button ng-click='addItem(product)'>add to cart</button>
-</div>
-
-
-	
-	
-	<h2>Shopping Card Example</h2>
-<div ng:controller="CartController">
-    <table class="table">
-        <tr>
-            
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Delete</th>
-        </tr>
-        <tr ng:repeat="item in invoice.items">
-<!--             <td><input type="text" ng:model="item.description"class="input-small"></td>      -->
-			<td>{{item.name}}</td>
-            <td><input type="number" ng:model="item.qty" ng:required class="input-mini"></td>
-            <td>{{item.price}}</td>
-            <td>{{item.qty * item.price | currency}}</td>
-            <td>
-                [<a href ng:click="removeItem($index)">X</a>]
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total:</td>
-            <td>{{total() | currency}}</td>
-        </tr>
-    </table>
-</div>
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</body>
+	<script src="scripts/angular.min.js"></script>	
+	<script src="scripts/app.js"></script>
+	<style>
+		font
+		</style>
+	</head>
+	<body ng-controller="StoreController as store">
+		<h1>Ghostbuster Supplies Ltd.</h1>
+		<h6><em>I ain't afraid of no ghosts</em></h6>
+		<div id="products">
+			<div class="item" ng-repeat="product in store.products">
+				<img ng-src="{{product.image}}" alt="">
+				<h4>{{product.name}}</h4>
+				<button class="add" ng-click='addItem(product)'>add to cart</button>
+			</div>
+		</div>
+		
+		<div id="cart" ng:controller="CartController">
+			<h2>Shopping Cart</h2>
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<th>Qty</th>
+					<th>Price</th>
+					<th>Total</th>
+					<th>Delete</th>
+				</tr>
+				<tr ng:repeat="item in invoice.items">
+					<td>{{item.name}}</td>
+					<td><input type="number" ng:model="item.qty" ng:required class="input-mini"></td>
+					<td>{{item.price | currency : "£"}}</td>
+					<td>{{item.qty * item.price | currency : "£"}}</td>
+					<td><a class="remove" href ng:click="removeItem($index)">&times;</a></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><strong>Total:</strong></td>
+					<td><strong>{{total() | currency : "£"}}</strong></td>
+				</tr>
+			</table>
+		</div>
+	</body>
 </html>
